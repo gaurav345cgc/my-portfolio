@@ -2,10 +2,15 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Initialize particles.js
   if (typeof particlesJS !== "undefined") {
+    // Reduce particles on mobile for better performance
+    const isMobile = window.innerWidth <= 768;
+    const isSmallMobile = window.innerWidth <= 480;
+    const particleCount = isSmallMobile ? 30 : isMobile ? 50 : 80;
+    
     particlesJS("particles-js", {
       particles: {
         number: {
-          value: 80,
+          value: particleCount,
           density: {
             enable: true,
             value_area: 800,
@@ -167,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const typedTextSpan = document.querySelector(".typed-text")
   const cursorSpan = document.querySelector(".cursor")
 
-  const textArray = ["Full-Stack Developer", "AI Enthusiast", "IoT Specialist", "Problem Solver"]
+  const textArray = ["AI Product Developer", "AI Engineer", "Full-Stack Architect", "LLM & RAG Specialist", "Problem Solver"]
 
   const typingDelay = 100
   const erasingDelay = 50
